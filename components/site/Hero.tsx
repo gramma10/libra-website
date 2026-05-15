@@ -4,14 +4,14 @@ import { Reveal } from "@/components/ui/reveal";
 
 export function Hero() {
   return (
-    <section className="relative overflow-hidden bg-hero-gradient">
-      {/* Slow drifting aurora — luxury backdrop */}
+    <section className="relative overflow-hidden bg-cream">
+      {/* Warm copper glow band — sits under the navbar, fades well above the title */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute inset-0 hero-aurora"
+        className="pointer-events-none absolute left-0 right-0 top-0 h-52 hero-aurora"
         style={{
-          backgroundImage:
-            "radial-gradient(900px 500px at 50% -10%, rgba(200,131,91,0.18), transparent 60%), radial-gradient(700px 400px at 85% 110%, rgba(166,100,64,0.15), transparent 60%)",
+          background:
+            "radial-gradient(900px 210px at 50% 0%, rgba(232,184,154,0.65), transparent 70%)",
         }}
       />
       <div className="container-page relative pt-14 pb-16 sm:pt-20 sm:pb-24 lg:pt-28 lg:pb-32">
