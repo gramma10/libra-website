@@ -88,7 +88,7 @@ export function ContactFormRoot() {
       role="dialog"
       aria-modal="true"
       aria-labelledby="contact-form-title"
-      className="fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-6"
+      className="fixed inset-0 z-[100] flex items-end justify-center p-3 sm:items-center sm:p-6"
     >
       <button
         type="button"
@@ -97,12 +97,12 @@ export function ContactFormRoot() {
         className="absolute inset-0 bg-ink/60 backdrop-blur-sm"
       />
 
-      <div className="relative w-full max-w-lg rounded-3xl bg-cream-50 p-6 shadow-lift sm:p-8 max-h-[calc(100vh-2rem)] overflow-y-auto">
+      <div className="relative w-full max-w-lg rounded-3xl bg-cream-50 p-5 shadow-lift sm:p-8 max-h-[calc(100dvh-1.5rem)] sm:max-h-[calc(100dvh-3rem)] overflow-y-auto">
         <button
           type="button"
           aria-label="Κλείσιμο φόρμας"
           onClick={() => setOpen(false)}
-          className="absolute right-4 top-4 inline-flex h-9 w-9 items-center justify-center rounded-full text-ink-muted transition-colors hover:bg-ink/5 hover:text-ink"
+          className="absolute right-3 top-3 inline-flex h-11 w-11 items-center justify-center rounded-full text-ink-muted transition-colors hover:bg-ink/5 hover:text-ink sm:right-4 sm:top-4"
         >
           <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
             <path
@@ -208,6 +208,7 @@ export function ContactFormRoot() {
                 name="shops"
                 type="number"
                 min="1"
+                inputMode="numeric"
                 value={form.shops}
                 onChange={update("shops")}
                 required
@@ -249,7 +250,7 @@ function Field({
       <input
         name={name}
         {...rest}
-        className="w-full rounded-xl border border-ink/15 bg-cream px-4 py-3 text-sm text-ink placeholder:text-ink-muted/60 transition-colors focus:border-copper-500 focus:outline-none focus:ring-2 focus:ring-copper-400/30"
+        className="w-full rounded-xl border border-ink/15 bg-cream px-4 py-3 text-base text-ink placeholder:text-ink-muted/60 transition-colors focus:border-copper-500 focus:outline-none focus:ring-2 focus:ring-copper-400/30 sm:text-sm"
       />
     </label>
   );

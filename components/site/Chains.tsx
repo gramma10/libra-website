@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { Reveal, RevealGroup, RevealItem } from "@/components/ui/reveal";
 
 const features = [
   {
@@ -29,8 +30,8 @@ const shops = [
 export function Chains() {
   return (
     <section id="chains" aria-labelledby="chains-heading" className="bg-cream-50/80">
-      <div className="container-page py-24 lg:py-32">
-        <div className="mx-auto max-w-2xl text-center">
+      <div className="container-page py-16 sm:py-24 lg:py-32">
+        <Reveal className="mx-auto max-w-2xl text-center">
           <span className="eyebrow">
             <span className="h-1.5 w-1.5 rounded-full bg-copper-500" aria-hidden="true" />
             Για αλυσίδες
@@ -38,19 +39,22 @@ export function Chains() {
           <h2 id="chains-heading" className="h-section mt-6">
             Μία αλυσίδα.
             <br />
-            <span className="bg-copper-gradient bg-clip-text text-transparent">Ένα dashboard.</span>
+            <span className="shimmer-text bg-copper-gradient bg-clip-text text-transparent">Ένα dashboard.</span>
           </h2>
           <p className="lede mt-5">
             Τα ξένα συστήματα σας δίνουν 4 ξεχωριστά profiles. Εμείς, μία επιχείρηση.
           </p>
-        </div>
+        </Reveal>
 
-        <div className="mt-16 grid gap-10 lg:grid-cols-12 lg:gap-14">
-          <ul className="grid gap-5 sm:grid-cols-2 lg:col-span-6">
+        <div className="mt-12 grid gap-8 sm:mt-16 sm:gap-10 lg:grid-cols-12 lg:gap-14">
+          <RevealGroup
+            className="grid gap-4 sm:grid-cols-2 sm:gap-5 lg:col-span-6"
+            stagger={0.08}
+          >
             {features.map((f) => (
-              <li
+              <RevealItem
                 key={f.title}
-                className="rounded-2xl border border-ink/10 bg-cream p-6 transition-colors hover:border-ink/20"
+                className="card-lift rounded-2xl border border-ink/10 bg-cream p-5 hover:border-ink/20 hover:shadow-soft sm:p-6"
               >
                 <div className="flex h-9 w-9 items-center justify-center rounded-full bg-copper-50">
                   <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
@@ -61,14 +65,14 @@ export function Chains() {
                   {f.title}
                 </h3>
                 <p className="mt-2 text-[15px] leading-relaxed text-ink-muted">{f.body}</p>
-              </li>
+              </RevealItem>
             ))}
-          </ul>
+          </RevealGroup>
 
-          <div className="lg:col-span-6">
+          <Reveal className="lg:col-span-6" delay={0.15}>
             <div className="relative rounded-3xl border border-ink/10 bg-cream-50 p-2 shadow-lift">
-              <div className="rounded-2xl bg-cream p-6 sm:p-7">
-                <div className="flex items-center justify-between">
+              <div className="rounded-2xl bg-cream p-5 sm:p-7">
+                <div className="flex flex-wrap items-center justify-between gap-2">
                   <span className="text-xs font-medium uppercase tracking-[0.14em] text-ink-muted">
                     Master view
                   </span>
@@ -77,28 +81,28 @@ export function Chains() {
                   </span>
                 </div>
 
-                <div className="mt-5 grid grid-cols-3 gap-2 rounded-xl bg-cream-50 p-3 text-center">
+                <div className="mt-5 grid grid-cols-3 gap-1.5 rounded-xl bg-cream-50 p-2.5 text-center sm:gap-2 sm:p-3">
                   <div>
-                    <div className="text-[10px] font-medium uppercase tracking-wider text-ink-muted">
-                      Συνολικά έσοδα
+                    <div className="text-[9px] font-medium uppercase tracking-wider text-ink-muted sm:text-[10px]">
+                      Έσοδα
                     </div>
-                    <div className="mt-1 font-display text-lg font-medium text-ink tabular-nums">
+                    <div className="mt-1 font-display text-base font-medium text-ink tabular-nums sm:text-lg">
                       €35.660
                     </div>
                   </div>
                   <div>
-                    <div className="text-[10px] font-medium uppercase tracking-wider text-ink-muted">
+                    <div className="text-[9px] font-medium uppercase tracking-wider text-ink-muted sm:text-[10px]">
                       Ραντεβού
                     </div>
-                    <div className="mt-1 font-display text-lg font-medium text-ink tabular-nums">
+                    <div className="mt-1 font-display text-base font-medium text-ink tabular-nums sm:text-lg">
                       550
                     </div>
                   </div>
                   <div>
-                    <div className="text-[10px] font-medium uppercase tracking-wider text-ink-muted">
-                      Πελάτες (μοναδικοί)
+                    <div className="text-[9px] font-medium uppercase tracking-wider text-ink-muted sm:text-[10px]">
+                      Πελάτες
                     </div>
-                    <div className="mt-1 font-display text-lg font-medium text-ink tabular-nums">
+                    <div className="mt-1 font-display text-base font-medium text-ink tabular-nums sm:text-lg">
                       412
                     </div>
                   </div>
@@ -108,18 +112,18 @@ export function Chains() {
                   {shops.map((s) => (
                     <li
                       key={s.name}
-                      className="flex items-center justify-between rounded-xl border border-ink/5 bg-cream-50 px-4 py-3"
+                      className="flex items-center justify-between gap-3 rounded-xl border border-ink/5 bg-cream-50 px-3 py-2.5 sm:px-4 sm:py-3"
                     >
-                      <div className="flex items-center gap-3">
-                        <span className="flex h-7 w-7 items-center justify-center rounded-full bg-copper-50 font-display text-[11px] font-medium text-copper-700">
+                      <div className="flex min-w-0 items-center gap-3">
+                        <span className="flex h-7 w-7 flex-none items-center justify-center rounded-full bg-copper-50 font-display text-[11px] font-medium text-copper-700">
                           {s.name[0]}
                         </span>
-                        <div>
-                          <div className="text-sm font-medium text-ink">{s.name}</div>
+                        <div className="min-w-0">
+                          <div className="truncate text-sm font-medium text-ink">{s.name}</div>
                           <div className="text-[11px] text-ink-muted">{s.appointments} ραντεβού</div>
                         </div>
                       </div>
-                      <div className="text-right">
+                      <div className="flex-none text-right">
                         <div className="font-display text-sm font-medium text-ink tabular-nums">
                           {s.revenue}
                         </div>
@@ -137,7 +141,7 @@ export function Chains() {
               </div>
             </div>
 
-          </div>
+          </Reveal>
         </div>
       </div>
     </section>

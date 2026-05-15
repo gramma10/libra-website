@@ -17,11 +17,12 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
+  overflow-x: clip;
 }
 
 @layer components {
   .container-page {
-    @apply mx-auto w-full max-w-7xl px-6 lg:px-10;
+    @apply mx-auto w-full max-w-7xl px-5 sm:px-6 lg:px-10;
   }
 
   .btn-primary {
@@ -37,31 +38,94 @@ body {
   }
 
   .h-display {
-    @apply font-display text-4xl font-medium tracking-tightest text-ink sm:text-5xl lg:text-6xl;
+    @apply font-display text-[2.25rem] leading-[1.1] font-medium tracking-tight text-ink sm:text-5xl sm:tracking-tightest lg:text-6xl;
   }
 
   .h-section {
-    @apply font-display text-3xl font-medium tracking-tightest text-ink sm:text-4xl lg:text-5xl;
+    @apply font-display text-[1.75rem] leading-[1.15] font-medium tracking-tight text-ink sm:text-4xl sm:tracking-tightest lg:text-5xl;
   }
 
   .lede {
-    @apply text-lg leading-relaxed text-ink-muted sm:text-xl;
+    @apply text-base leading-relaxed text-ink-muted sm:text-lg lg:text-xl;
   }
+}
+
+/* Larger slider thumb for better touch targets on mobile */
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 22px;
+  height: 22px;
+  border-radius: 9999px;
+  background: #A66440;
+  border: 2px solid #FBF8F2;
+  box-shadow: 0 1px 3px rgba(11, 15, 26, 0.25);
+  cursor: pointer;
+}
+input[type="range"]::-moz-range-thumb {
+  width: 22px;
+  height: 22px;
+  border-radius: 9999px;
+  background: #A66440;
+  border: 2px solid #FBF8F2;
+  box-shadow: 0 1px 3px rgba(11, 15, 26, 0.25);
+  cursor: pointer;
 }
 
 /* Subtle scroll-triggered fade for sections */
 @media (prefers-reduced-motion: no-preference) {
   .reveal {
-    animation: reveal 0.7s ease-out both;
+    animation: reveal 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
   }
   @keyframes reveal {
     from {
       opacity: 0;
-      transform: translateY(8px);
+      transform: translateY(12px);
     }
     to {
       opacity: 1;
       transform: translateY(0);
+    }
+  }
+
+  /* Slow, luxurious gradient float for hero backdrop */
+  .hero-aurora {
+    animation: aurora 18s ease-in-out infinite alternate;
+  }
+  @keyframes aurora {
+    from {
+      transform: translate3d(0, 0, 0) scale(1);
+      opacity: 0.85;
+    }
+    to {
+      transform: translate3d(2%, -1%, 0) scale(1.05);
+      opacity: 1;
+    }
+  }
+
+  /* Lift cards on hover — luxury feel */
+  .card-lift {
+    transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+      box-shadow 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+      border-color 0.3s ease;
+  }
+  .card-lift:hover {
+    transform: translateY(-3px);
+  }
+}
+
+/* Gradient text shimmer for copper-gradient headlines */
+@media (prefers-reduced-motion: no-preference) {
+  .shimmer-text {
+    background-size: 200% 100%;
+    animation: shimmer 8s ease-in-out infinite;
+  }
+  @keyframes shimmer {
+    0%, 100% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
     }
   }
 }

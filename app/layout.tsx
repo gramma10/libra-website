@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { ContactFormRoot } from "@/components/site/ContactFormRoot";
@@ -8,6 +8,12 @@ const inter = Inter({
   variable: "--font-inter",
   display: "swap",
 });
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  themeColor: "#FBF8F2",
+};
 
 export const metadata: Metadata = {
   title: "Libra — Το Λειτουργικό Σύστημα του Σαλονιού σας",

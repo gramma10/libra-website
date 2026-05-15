@@ -1,3 +1,5 @@
+import { Reveal, RevealGroup, RevealItem } from "@/components/ui/reveal";
+
 const pains = [
   {
     title: "Πέντε εργαλεία που δεν μιλάνε μεταξύ τους",
@@ -16,8 +18,8 @@ const pains = [
 export function Problem() {
   return (
     <section aria-labelledby="problem-heading" className="bg-cream">
-      <div className="container-page py-24 lg:py-32">
-        <div className="mx-auto max-w-2xl text-center">
+      <div className="container-page py-16 sm:py-24 lg:py-32">
+        <Reveal className="mx-auto max-w-2xl text-center">
           <span className="eyebrow">
             <span className="h-1.5 w-1.5 rounded-full bg-copper-500" aria-hidden="true" />
             Το πρόβλημα
@@ -29,24 +31,27 @@ export function Problem() {
             Οι περισσότεροι ιδιοκτήτες επιχειρήσεων ομορφιάς στην Ελλάδα διαχειρίζονται την επιχείρησή τους με
             εργαλεία που δεν είναι σχεδιασμένα ούτε για το αντικείμενό τους, ούτε για την αγορά τους.
           </p>
-        </div>
+        </Reveal>
 
-        <div className="mt-16 grid gap-6 lg:grid-cols-3">
+        <RevealGroup
+          className="mt-12 grid gap-5 sm:mt-16 sm:gap-6 lg:grid-cols-3"
+          stagger={0.1}
+          delayChildren={0.1}
+        >
           {pains.map((p, i) => (
-            <article
-              key={p.title}
-              className="rounded-2xl border border-ink/10 bg-cream-50 p-7 transition-shadow hover:shadow-soft"
-            >
-              <div className="flex h-9 w-9 items-center justify-center rounded-full bg-copper-50 font-display text-sm font-medium text-copper-700">
-                {String(i + 1).padStart(2, "0")}
-              </div>
-              <h3 className="mt-5 font-display text-xl font-medium tracking-tight text-ink">
-                {p.title}
-              </h3>
-              <p className="mt-3 text-base leading-relaxed text-ink-muted">{p.body}</p>
-            </article>
+            <RevealItem key={p.title}>
+              <article className="card-lift h-full rounded-2xl border border-ink/10 bg-cream-50 p-5 hover:border-ink/20 hover:shadow-lift sm:p-7">
+                <div className="flex h-9 w-9 items-center justify-center rounded-full bg-copper-50 font-display text-sm font-medium text-copper-700">
+                  {String(i + 1).padStart(2, "0")}
+                </div>
+                <h3 className="mt-5 font-display text-xl font-medium tracking-tight text-ink">
+                  {p.title}
+                </h3>
+                <p className="mt-3 text-base leading-relaxed text-ink-muted">{p.body}</p>
+              </article>
+            </RevealItem>
           ))}
-        </div>
+        </RevealGroup>
       </div>
     </section>
   );

@@ -1,17 +1,27 @@
 import Link from "next/link";
 import { ContactButton } from "./ContactButton";
+import { Reveal } from "@/components/ui/reveal";
 
 export function Hero() {
   return (
     <section className="relative overflow-hidden bg-hero-gradient">
-      <div className="container-page relative pt-20 pb-24 lg:pt-28 lg:pb-32">
+      {/* Slow drifting aurora — luxury backdrop */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 hero-aurora"
+        style={{
+          backgroundImage:
+            "radial-gradient(900px 500px at 50% -10%, rgba(200,131,91,0.18), transparent 60%), radial-gradient(700px 400px at 85% 110%, rgba(166,100,64,0.15), transparent 60%)",
+        }}
+      />
+      <div className="container-page relative pt-14 pb-16 sm:pt-20 sm:pb-24 lg:pt-28 lg:pb-32">
         <div className="mx-auto max-w-5xl text-center reveal">
           <span className="eyebrow">
             <span className="h-1.5 w-1.5 rounded-full bg-copper-500" aria-hidden="true" />
-            Πληρώνετε με βάση την αξία. Όχι με βάση τη συνδρομή.
+            Πληρώνετε με βάση την αξία.
           </span>
 
-          <h1 className="font-display text-5xl font-medium tracking-tightest text-ink sm:text-6xl lg:text-6xl mt-6 leading-tight">
+          <h1 className="mt-6 font-display text-[2.25rem] font-medium leading-[1.1] tracking-tight text-ink sm:text-5xl sm:leading-tight sm:tracking-tightest lg:text-6xl">
             <span className="block">Λιγότερα no-shows.</span>
             <span className="block">Περισσότεροι πελάτες που γυρνάνε.</span>
             <span className="block bg-copper-gradient bg-clip-text text-transparent">
@@ -19,14 +29,14 @@ export function Hero() {
             </span>
           </h1>
 
-          <p className="lede mx-auto mt-6 max-w-2xl">
+          <p className="lede mx-auto mt-5 max-w-2xl sm:mt-6">
             Το Libra αυτοματοποιεί τα ραντεβού, ξυπνάει τους ξεχασμένους πελάτες σας και
             σας δείχνει σε πραγματικό χρόνο πού πάει κάθε ευρώ. Ένα σύστημα για ολόκληρη
             την επιχείρηση, όχι ακόμα ένα ημερολόγιο ραντεβού.
           </p>
 
-          <div className="mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row">
-            <ContactButton className="btn-primary">
+          <div className="mt-8 flex flex-col items-stretch justify-center gap-3 sm:mt-9 sm:flex-row sm:items-center">
+            <ContactButton className="btn-primary w-full sm:w-auto">
               Επικοινωνήστε μαζί μας
               <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
                 <path d="M3 7H11M11 7L7 3M11 7L7 11" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
@@ -38,14 +48,14 @@ export function Hero() {
 
         {/* Hero visual — replace this block with a real lifestyle photograph (principle #3).
             See README placeholder note. The frame below is a styled stand-in. */}
-        <div className="relative mx-auto mt-16 max-w-5xl reveal">
-          <div className="relative rounded-3xl border border-ink/10 bg-cream-50 p-2 shadow-lift">
-            <div className="aspect-[16/9] w-full overflow-hidden rounded-2xl bg-gradient-to-br from-cream-200 via-copper-100 to-copper-200">
+        <Reveal className="relative mx-auto mt-12 max-w-5xl sm:mt-16" delay={0.2} y={32}>
+          <div className="relative rounded-2xl border border-ink/10 bg-cream-50 p-1.5 shadow-lift sm:rounded-3xl sm:p-2">
+            <div className="aspect-[4/5] w-full overflow-hidden rounded-xl bg-gradient-to-br from-cream-200 via-copper-100 to-copper-200 sm:aspect-[16/9] sm:rounded-2xl">
               <DashboardMock />
             </div>
           </div>
           <div className="pointer-events-none absolute -inset-x-12 -bottom-12 h-32 bg-cream/60 blur-3xl" aria-hidden="true" />
-        </div>
+        </Reveal>
       </div>
     </section>
   );
@@ -67,7 +77,7 @@ function Stars() {
    without a real screenshot. Swap this for a real product screenshot before launch. */
 function DashboardMock() {
   return (
-    <div className="grid h-full grid-cols-12 gap-3 p-5 sm:p-6">
+    <div className="grid h-full grid-cols-12 gap-2.5 p-3 sm:gap-3 sm:p-5 lg:p-6">
       <div className="col-span-12 flex items-center justify-between">
         <div className="flex items-center gap-2">
           <div className="h-2 w-2 rounded-full bg-ink/20" />
@@ -79,20 +89,20 @@ function DashboardMock() {
         </div>
       </div>
 
-      <div className="col-span-12 grid grid-cols-3 gap-3 lg:col-span-8">
-        <MetricCard label="Έσοδα ημέρας" value="€1.842" trend="+12%" />
-        <MetricCard label="Καθαρό κέρδος" value="€612" trend="+18%" highlight />
+      <div className="col-span-12 grid grid-cols-3 gap-2 sm:gap-3 lg:col-span-8">
+        <MetricCard label="Έσοδα" value="€1.842" trend="+12%" />
+        <MetricCard label="Κέρδος" value="€612" trend="+18%" highlight />
         <MetricCard label="Πληρότητα" value="87%" trend="+4%" />
-        <div className="col-span-3 rounded-xl bg-cream-50 p-4">
-          <div className="mb-3 flex items-center justify-between">
-            <span className="text-xs font-medium text-ink-muted">Καθαρό κέρδος / 7 ημέρες</span>
-            <span className="text-xs text-ink-muted">€ 4.280</span>
+        <div className="col-span-3 rounded-xl bg-cream-50 p-3 sm:p-4">
+          <div className="mb-2 flex flex-wrap items-center justify-between gap-x-3 gap-y-1 sm:mb-3">
+            <span className="text-[11px] font-medium text-ink-muted sm:text-xs">Καθαρό κέρδος / 7 ημ.</span>
+            <span className="text-[11px] text-ink-muted sm:text-xs">€ 4.280</span>
           </div>
           <Sparkline />
         </div>
       </div>
 
-      <div className="col-span-12 rounded-xl bg-cream-50 p-4 lg:col-span-4">
+      <div className="col-span-12 rounded-xl bg-cream-50 p-3 sm:p-4 lg:col-span-4">
         <div className="mb-3 text-xs font-medium text-ink-muted">Επόμενα ραντεβού</div>
         <div className="space-y-2">
           {[
@@ -117,14 +127,14 @@ function DashboardMock() {
 
 function MetricCard({ label, value, trend, highlight }: { label: string; value: string; trend: string; highlight?: boolean }) {
   return (
-    <div className={`rounded-xl p-4 ${highlight ? "bg-copper-gradient text-cream-50" : "bg-cream-50"}`}>
-      <div className={`text-[11px] font-medium uppercase tracking-wider ${highlight ? "text-cream-100/80" : "text-ink-muted"}`}>
+    <div className={`rounded-lg p-2.5 sm:rounded-xl sm:p-4 ${highlight ? "bg-copper-gradient text-cream-50" : "bg-cream-50"}`}>
+      <div className={`text-[9px] font-medium uppercase tracking-wider sm:text-[11px] ${highlight ? "text-cream-100/80" : "text-ink-muted"}`}>
         {label}
       </div>
-      <div className={`mt-1 font-display text-xl font-medium ${highlight ? "text-cream-50" : "text-ink"}`}>
+      <div className={`mt-0.5 font-display text-sm font-medium sm:mt-1 sm:text-xl ${highlight ? "text-cream-50" : "text-ink"}`}>
         {value}
       </div>
-      <div className={`mt-0.5 text-[11px] ${highlight ? "text-cream-100/90" : "text-copper-600"}`}>
+      <div className={`mt-0.5 text-[9px] sm:text-[11px] ${highlight ? "text-cream-100/90" : "text-copper-600"}`}>
         {trend} vs χθες
       </div>
     </div>

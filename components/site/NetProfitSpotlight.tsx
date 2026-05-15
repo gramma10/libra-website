@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { Reveal } from "@/components/ui/reveal";
 
 const ledger = [
   { label: "Τζίρος Νοεμβρίου", value: "€42.180", tone: "neutral" as const },
@@ -10,9 +11,9 @@ const ledger = [
 export function NetProfitSpotlight() {
   return (
     <section id="profit" aria-labelledby="profit-heading" className="bg-cream">
-      <div className="container-page py-24 lg:py-32">
-        <div className="grid gap-14 lg:grid-cols-12 lg:gap-16">
-          <div className="lg:col-span-5 lg:pt-6">
+      <div className="container-page py-16 sm:py-24 lg:py-32">
+        <div className="grid gap-10 sm:gap-14 lg:grid-cols-12 lg:gap-16">
+          <Reveal className="lg:col-span-5 lg:pt-6">
             <div className="flex items-center gap-3">
               <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-copper-gradient text-cream-50 shadow-soft">
                 <ChartIcon />
@@ -21,14 +22,13 @@ export function NetProfitSpotlight() {
                 Νούμερα
               </span>
             </div>
-            <h2 id="profit-heading" className="mt-5 font-display text-3xl font-medium tracking-tight text-ink sm:text-4xl">
-              Τα νούμερα που έχετε ήδη.
-              <br />
-              <span className="bg-copper-gradient bg-clip-text text-transparent">
+            <h2 id="profit-heading" className="mt-5 font-display text-[1.75rem] font-medium leading-[1.15] tracking-tight text-ink sm:text-4xl sm:leading-tight">
+              Τα νούμερα που έχετε ήδη.{" "}
+              <span className="block bg-copper-gradient bg-clip-text text-transparent">
                 Σε γλώσσα που καταλαβαίνετε.
               </span>
             </h2>
-            <p className="mt-6 text-[17px] leading-relaxed text-ink-muted">
+            <p className="mt-6 text-base leading-relaxed text-ink-muted sm:text-[17px]">
               Net profit engine, γραφήματα εσόδων, και κερδοφορία ανά υπηρεσία —
               σε ένα dashboard.
             </p>
@@ -61,12 +61,12 @@ export function NetProfitSpotlight() {
               </li>
             </ul>
 
-          </div>
+          </Reveal>
 
-          <div className="lg:col-span-7">
+          <Reveal className="lg:col-span-7" delay={0.15}>
             <div className="relative rounded-3xl border border-ink/10 bg-cream-50 p-2 shadow-lift">
-              <div className="rounded-2xl bg-cream p-6 sm:p-8">
-                <div className="flex items-center justify-between">
+              <div className="rounded-2xl bg-cream p-5 sm:p-8">
+                <div className="flex flex-wrap items-center justify-between gap-2">
                   <span className="text-xs font-medium uppercase tracking-[0.14em] text-ink-muted">
                     Επισκόπηση μήνα
                   </span>
@@ -77,10 +77,10 @@ export function NetProfitSpotlight() {
 
                 <ul className="mt-6 space-y-3">
                   {ledger.map((row) => (
-                    <li key={row.label} className="flex items-center justify-between border-b border-ink/5 pb-3 last:border-b-0">
-                      <span className="text-sm text-ink-muted">{row.label}</span>
+                    <li key={row.label} className="flex items-center justify-between gap-3 border-b border-ink/5 pb-3 last:border-b-0">
+                      <span className="min-w-0 text-sm text-ink-muted">{row.label}</span>
                       <span
-                        className={`font-display text-base font-medium tabular-nums ${
+                        className={`flex-none font-display text-base font-medium tabular-nums ${
                           row.tone === "down" ? "text-ink-muted" : "text-ink"
                         }`}
                       >
@@ -90,17 +90,17 @@ export function NetProfitSpotlight() {
                   ))}
                 </ul>
 
-                <div className="mt-6 rounded-xl bg-copper-gradient p-5 text-cream-50 shadow-soft">
-                  <div className="flex items-center justify-between">
-                    <div>
+                <div className="mt-6 rounded-xl bg-copper-gradient p-4 text-cream-50 shadow-soft sm:p-5">
+                  <div className="flex items-center justify-between gap-3">
+                    <div className="min-w-0">
                       <div className="text-[11px] font-medium uppercase tracking-[0.14em] text-cream-100/80">
                         Καθαρό κέρδος
                       </div>
-                      <div className="mt-1 font-display text-3xl font-medium tabular-nums">
+                      <div className="mt-1 font-display text-2xl font-medium tabular-nums sm:text-3xl">
                         €16.210
                       </div>
                     </div>
-                    <div className="text-right text-[11px] text-cream-100/85">
+                    <div className="flex-none text-right text-[11px] text-cream-100/85">
                       <div>Περιθώριο</div>
                       <div className="font-display text-base font-medium text-cream-50">38,4%</div>
                     </div>
@@ -123,7 +123,7 @@ export function NetProfitSpotlight() {
                 </div>
               </div>
             </div>
-          </div>
+          </Reveal>
         </div>
       </div>
     </section>

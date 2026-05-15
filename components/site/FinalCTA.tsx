@@ -1,10 +1,11 @@
 import { ContactButton } from "./ContactButton";
+import { Reveal } from "@/components/ui/reveal";
 
 export function FinalCTA() {
   return (
     <section id="contact" aria-labelledby="cta-heading" className="bg-cream">
-      <div className="container-page py-24 lg:py-28">
-        <div className="relative overflow-hidden rounded-3xl bg-ink px-8 py-16 text-center shadow-lift sm:px-16 sm:py-20">
+      <div className="container-page py-16 sm:py-24 lg:py-28">
+        <Reveal className="relative overflow-hidden rounded-3xl bg-ink px-5 py-12 text-center shadow-lift sm:px-16 sm:py-20" y={32}>
           <div
             className="pointer-events-none absolute inset-0 opacity-70"
             style={{
@@ -22,22 +23,22 @@ export function FinalCTA() {
 
             <h2
               id="cta-heading"
-              className="mx-auto mt-6 max-w-3xl font-display text-4xl font-medium tracking-tightest text-cream-50 sm:text-5xl lg:text-6xl"
+              className="mx-auto mt-5 max-w-3xl font-display text-[1.75rem] font-medium leading-[1.15] tracking-tight text-cream-50 sm:mt-6 sm:text-5xl sm:tracking-tightest lg:text-6xl"
             >
               Πάρτε πίσω{" "}
               <span className="bg-copper-gradient bg-clip-text text-transparent">τους πελάτες σας</span>.
-              <br />
+              <br className="hidden sm:inline" />{" "}
               Και το κέρδος τους.
             </h2>
 
-            <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-cream-100/85 sm:text-xl">
+            <p className="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-cream-100/85 sm:mt-6 sm:text-lg lg:text-xl">
               Μιλήστε με την ομάδα μας στη Θεσσαλονίκη. Σας δείχνουμε την πλατφόρμα με
               πραγματικούς αριθμούς για τη δική σας επιχείρηση — και ξεκινάμε με αξία, όχι με
               συνδρομή.
             </p>
 
-            <div className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row">
-              <ContactButton className="inline-flex items-center justify-center gap-2 rounded-full bg-cream-50 px-6 py-3.5 text-sm font-medium tracking-tight text-ink shadow-soft transition-all hover:bg-cream-200 hover:shadow-lift focus:outline-none focus-visible:ring-2 focus-visible:ring-copper-400 focus-visible:ring-offset-2 focus-visible:ring-offset-ink">
+            <div className="mt-8 flex flex-col items-stretch justify-center gap-3 sm:mt-10 sm:flex-row sm:items-center">
+              <ContactButton className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-cream-50 px-6 py-3.5 text-sm font-medium tracking-tight text-ink shadow-soft transition-all hover:bg-cream-200 hover:shadow-lift focus:outline-none focus-visible:ring-2 focus-visible:ring-copper-400 focus-visible:ring-offset-2 focus-visible:ring-offset-ink sm:w-auto">
                 Επικοινωνήστε μαζί μας
                 <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
                   <path
@@ -58,7 +59,7 @@ export function FinalCTA() {
               </a>
             </p>
           </div>
-        </div>
+        </Reveal>
       </div>
     </section>
   );

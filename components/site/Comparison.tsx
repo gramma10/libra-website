@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import { Reveal } from "@/components/ui/reveal";
 
 type Row = {
   label: string;
@@ -47,8 +48,8 @@ const rows: Row[] = [
 export function Comparison() {
   return (
     <section id="compare" aria-labelledby="compare-heading" className="bg-cream-50/80">
-      <div className="container-page py-24 lg:py-32">
-        <div className="mx-auto max-w-2xl text-center">
+      <div className="container-page py-16 sm:py-24 lg:py-32">
+        <Reveal className="mx-auto max-w-2xl text-center">
           <span className="eyebrow">
             <span className="h-1.5 w-1.5 rounded-full bg-copper-500" aria-hidden="true" />
             Σύγκριση
@@ -59,9 +60,36 @@ export function Comparison() {
           <p className="lede mt-5">
             Δύο διαφορετικά μοντέλα. Δύο διαφορετικά αποτελέσματα για την επιχείρησή σας.
           </p>
+        </Reveal>
+
+        {/* Mobile: stacked cards per row */}
+        <div className="mx-auto mt-10 max-w-md space-y-3 sm:hidden">
+          {rows.map((r) => (
+            <div
+              key={r.label}
+              className="rounded-2xl border border-ink/10 bg-cream p-4 shadow-soft"
+            >
+              <div className="text-[13px] font-medium text-ink">{r.label}</div>
+              <div className="mt-3 grid grid-cols-2 gap-3">
+                <div className="rounded-xl bg-cream-50 p-3">
+                  <div className="text-[10px] font-medium uppercase tracking-[0.14em] text-ink-muted">
+                    Libra
+                  </div>
+                  <div className="mt-1.5 text-[14px] text-ink">{r.libra}</div>
+                </div>
+                <div className="rounded-xl bg-cream-50/60 p-3">
+                  <div className="text-[10px] font-medium uppercase tracking-[0.14em] text-ink-muted">
+                    Marketplace
+                  </div>
+                  <div className="mt-1.5 text-[14px] text-ink-muted">{r.marketplace}</div>
+                </div>
+              </div>
+            </div>
+          ))}
         </div>
 
-        <div className="mx-auto mt-14 max-w-4xl overflow-hidden rounded-2xl border border-ink/10 bg-cream shadow-soft">
+        {/* Desktop: 3-column grid */}
+        <Reveal className="mx-auto mt-14 hidden max-w-4xl overflow-hidden rounded-2xl border border-ink/10 bg-cream shadow-soft sm:block" delay={0.1}>
           <div className="grid grid-cols-[1.4fr,1fr,1fr] items-center gap-4 border-b border-ink/10 bg-cream-50 px-5 py-4 text-[11px] font-medium uppercase tracking-[0.14em] text-ink-muted sm:px-8">
             <div></div>
             <div className="text-center">
@@ -88,7 +116,7 @@ export function Comparison() {
               <div className="text-center text-[14px] text-ink-muted">{r.marketplace}</div>
             </div>
           ))}
-        </div>
+        </Reveal>
       </div>
     </section>
   );

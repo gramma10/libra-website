@@ -1,3 +1,5 @@
+import { Reveal } from "@/components/ui/reveal";
+
 const faqs = [
   {
     q: "Κρατάτε προμήθεια από τα ραντεβού μου;",
@@ -32,9 +34,9 @@ const faqs = [
 export function FAQ() {
   return (
     <section id="faq" aria-labelledby="faq-heading" className="bg-cream-50/60">
-      <div className="container-page py-24 lg:py-32">
+      <div className="container-page py-16 sm:py-24 lg:py-32">
         <div className="mx-auto max-w-3xl">
-          <div className="text-center">
+          <Reveal className="text-center">
             <span className="eyebrow">
               <span className="h-1.5 w-1.5 rounded-full bg-copper-500" aria-hidden="true" />
               Συχνές ερωτήσεις
@@ -42,17 +44,17 @@ export function FAQ() {
             <h2 id="faq-heading" className="h-section mt-6">
               Ό,τι πρέπει να ξέρετε.
             </h2>
-          </div>
+          </Reveal>
 
-          <div className="mt-12 divide-y divide-ink/10 rounded-2xl border border-ink/10 bg-cream">
+          <Reveal className="mt-10 divide-y divide-ink/10 rounded-2xl border border-ink/10 bg-cream sm:mt-12" delay={0.1}>
             {faqs.map((item) => (
-              <details key={item.q} className="group px-6 py-5 [&_summary::-webkit-details-marker]:hidden">
-                <summary className="flex cursor-pointer items-start justify-between gap-6 list-none">
-                  <span className="font-display text-base font-medium text-ink sm:text-lg">
+              <details key={item.q} className="group px-5 py-4 sm:px-6 sm:py-5 [&_summary::-webkit-details-marker]:hidden">
+                <summary className="flex cursor-pointer items-start justify-between gap-3 list-none sm:gap-6">
+                  <span className="font-display text-[15px] font-medium leading-snug text-ink sm:text-lg">
                     {item.q}
                   </span>
                   <span
-                    className="mt-1 flex h-7 w-7 flex-none items-center justify-center rounded-full border border-ink/15 text-ink-muted transition-transform group-open:rotate-45 group-open:border-copper-500 group-open:text-copper-500"
+                    className="mt-0.5 flex h-7 w-7 flex-none items-center justify-center rounded-full border border-ink/15 text-ink-muted transition-transform group-open:rotate-45 group-open:border-copper-500 group-open:text-copper-500"
                     aria-hidden="true"
                   >
                     <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
@@ -60,12 +62,12 @@ export function FAQ() {
                     </svg>
                   </span>
                 </summary>
-                <p className="mt-3 max-w-2xl pr-12 text-[15px] leading-relaxed text-ink-muted">
+                <p className="mt-3 max-w-2xl text-[14px] leading-relaxed text-ink-muted sm:pr-12 sm:text-[15px]">
                   {item.a}
                 </p>
               </details>
             ))}
-          </div>
+          </Reveal>
 
           <p className="mt-8 text-center text-sm text-ink-muted">
             Άλλη ερώτηση;{" "}

@@ -1,4 +1,4 @@
-import { Nav } from "@/components/site/Nav";
+import { Navbar1 } from "@/components/ui/navbar-1";
 import { Hero } from "@/components/site/Hero";
 import { Problem } from "@/components/site/Problem";
 import { Features } from "@/components/site/Features";
@@ -14,7 +14,7 @@ import { Footer } from "@/components/site/Footer";
 export default function HomePage() {
   return (
     <>
-      <Nav />
+      <Navbar1 />
       <main>
         <Hero />
         <Problem />

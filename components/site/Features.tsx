@@ -1,5 +1,6 @@
 import Link from "next/link";
 import type { ReactNode } from "react";
+import { Reveal, RevealGroup, RevealItem } from "@/components/ui/reveal";
 
 type Pillar = {
   id: string;
@@ -59,8 +60,8 @@ const pillars: Pillar[] = [
 export function Features() {
   return (
     <section id="platform" aria-labelledby="features-heading" className="bg-cream-50/80">
-      <div className="container-page py-24 lg:py-32">
-        <div className="mx-auto max-w-2xl text-center">
+      <div className="container-page py-16 sm:py-24 lg:py-32">
+        <Reveal className="mx-auto max-w-2xl text-center">
           <span className="eyebrow">
             <span className="h-1.5 w-1.5 rounded-full bg-copper-500" aria-hidden="true" />
             Η πλατφόρμα
@@ -72,13 +73,19 @@ export function Features() {
             Τέσσερις πυλώνες, μία πλατφόρμα. Από το πρώτο ραντεβού μέχρι τον τελευταίο
             δείκτη απόδοσης — όλα συνδεδεμένα, αυτόματα, στα ελληνικά.
           </p>
-        </div>
+        </Reveal>
 
-        <div className="mt-16 space-y-6 lg:space-y-8">
+        <RevealGroup
+          className="mt-16 space-y-6 lg:space-y-8"
+          stagger={0.12}
+          delayChildren={0.05}
+        >
           {pillars.map((p) => (
-            <PillarCard key={p.id} pillar={p} />
+            <RevealItem key={p.id}>
+              <PillarCard pillar={p} />
+            </RevealItem>
           ))}
-        </div>
+        </RevealGroup>
       </div>
     </section>
   );
@@ -88,7 +95,7 @@ function PillarCard({ pillar }: { pillar: Pillar }) {
   return (
     <article
       id={pillar.id}
-      className="grid gap-8 rounded-2xl border border-ink/10 bg-cream p-7 transition-shadow hover:shadow-soft lg:grid-cols-12 lg:gap-10 lg:p-10"
+      className="card-lift grid gap-6 rounded-2xl border border-ink/10 bg-cream p-5 hover:border-ink/20 hover:shadow-lift sm:gap-8 sm:p-7 lg:grid-cols-12 lg:gap-10 lg:p-10"
     >
       <header className="lg:col-span-4">
         <div className="flex items-center gap-3">
@@ -99,7 +106,7 @@ function PillarCard({ pillar }: { pillar: Pillar }) {
             {pillar.eyebrow}
           </span>
         </div>
-        <h3 className="mt-5 font-display text-2xl font-medium tracking-tight text-ink sm:text-3xl">
+        <h3 className="mt-4 font-display text-xl font-medium tracking-tight text-ink sm:mt-5 sm:text-2xl lg:text-3xl">
           {pillar.title}
         </h3>
         <div className="mt-6 rounded-xl bg-copper-50 px-4 py-3 text-sm font-medium text-copper-700">

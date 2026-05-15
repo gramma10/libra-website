@@ -1,4 +1,5 @@
 import { ContactButton } from "./ContactButton";
+import { Reveal } from "@/components/ui/reveal";
 
 // TODO: Final pricing has not been confirmed. Update this section before launch.
 
@@ -16,8 +17,8 @@ const services = [
 export function Pricing() {
   return (
     <section id="pricing" aria-labelledby="pricing-heading" className="bg-cream">
-      <div className="container-page py-24 lg:py-32">
-        <div className="mx-auto max-w-2xl text-center">
+      <div className="container-page py-16 sm:py-24 lg:py-32">
+        <Reveal className="mx-auto max-w-2xl text-center">
           <span className="eyebrow">
             <span className="h-1.5 w-1.5 rounded-full bg-copper-500" aria-hidden="true" />
             Τιμές
@@ -33,18 +34,18 @@ export function Pricing() {
             Αν τον πρώτο μήνα δεν δείτε αποτελέσματα, δεν πληρώνετε. Δεν είμαστε
             προμηθευτής λογισμικού — είμαστε συνεργάτης σας.
           </p>
-        </div>
+        </Reveal>
 
-        <div className="mx-auto mt-14 max-w-3xl">
-          <div className="rounded-3xl border border-ink/10 bg-cream-50 p-8 shadow-soft sm:p-10">
-            <div className="flex items-start gap-5">
-              <div className="flex h-12 w-12 flex-none items-center justify-center rounded-2xl bg-copper-gradient text-cream-50 shadow-soft">
+        <Reveal className="mx-auto mt-10 max-w-3xl sm:mt-14" delay={0.15}>
+          <div className="rounded-3xl border border-ink/10 bg-cream-50 p-5 shadow-soft sm:p-8 lg:p-10">
+            <div className="flex items-start gap-4 sm:gap-5">
+              <div className="flex h-11 w-11 flex-none items-center justify-center rounded-2xl bg-copper-gradient text-cream-50 shadow-soft sm:h-12 sm:w-12">
                 <svg width="22" height="22" viewBox="0 0 22 22" fill="none" aria-hidden="true">
                   <path d="M5 11.5L9.5 16L17 7" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>
               </div>
               <div>
-                <h3 className="font-display text-2xl font-medium tracking-tight text-ink">
+                <h3 className="font-display text-xl font-medium tracking-tight text-ink sm:text-2xl">
                   Custom πακέτο
                 </h3>
                 <p className="mt-2 text-[15px] leading-relaxed text-ink-muted">
@@ -54,25 +55,25 @@ export function Pricing() {
               </div>
             </div>
 
-            <ul className="mt-8 grid gap-3 sm:grid-cols-2">
+            <ul className="mt-7 grid gap-2.5 sm:mt-8 sm:grid-cols-2 sm:gap-3">
               {services.map((s) => (
-                <li key={s.id} className="flex items-center gap-3 rounded-xl border border-ink/[0.08] bg-cream px-4 py-3">
+                <li key={s.id} className="flex items-center gap-3 rounded-xl border border-ink/[0.08] bg-cream px-3.5 py-3 sm:px-4">
                   <span className="inline-flex h-5 w-5 flex-none items-center justify-center rounded-full bg-copper-50 text-copper-700">
                     <svg width="10" height="10" viewBox="0 0 10 10" fill="none" aria-hidden="true">
                       <path d="M2 5.5L4 7.5L8 3" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
                     </svg>
                   </span>
-                  <span className="text-[15px] text-ink">{s.label}</span>
+                  <span className="text-[14px] text-ink sm:text-[15px]">{s.label}</span>
                 </li>
               ))}
             </ul>
 
-            <div className="mt-10 flex flex-col items-stretch gap-4 border-t border-ink/[0.08] pt-8 sm:flex-row sm:items-center sm:justify-between">
+            <div className="mt-8 flex flex-col items-stretch gap-4 border-t border-ink/[0.08] pt-7 sm:mt-10 sm:flex-row sm:items-center sm:justify-between sm:pt-8">
               <div>
                 <div className="text-sm font-medium text-ink">Πρώτος μήνας δωρεάν αν δεν φέρει αποτελέσματα.</div>
                 <div className="mt-1 text-sm text-ink-muted">Χωρίς δέσμευση. Χωρίς κρυφές χρεώσεις.</div>
               </div>
-              <ContactButton className="btn-primary shrink-0">
+              <ContactButton className="btn-primary w-full shrink-0 sm:w-auto">
                 Επικοινωνήστε μαζί μας
                 <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
                   <path d="M3 7H11M11 7L7 3M11 7L7 11" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
@@ -80,7 +81,7 @@ export function Pricing() {
               </ContactButton>
             </div>
           </div>
-        </div>
+        </Reveal>
       </div>
     </section>
   );
